@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -13,7 +13,7 @@ public class biubiu : MonoBehaviour
     void Update()
     {
 
-        //´íÎóÊ¾Àı£ºÖ»Éú³ÉÁËÔ¤ÖÆÌå£¬Ã»ÓĞ¸Ä±äÉú³ÉÔ¤ÖÆÌåµÄÊôĞÔ
+        //é”™è¯¯ç¤ºä¾‹ï¼šåªç”Ÿæˆäº†é¢„åˆ¶ä½“ï¼Œæ²¡æœ‰æ”¹å˜ç”Ÿæˆé¢„åˆ¶ä½“çš„å±æ€§
         //if(Input.GetMouseButtonDown(0))
         //{
          //   Instantiate(obj, BulletShootPos.position + Vector3.forward, new Quaternion(0, 0, 0, 0));  
@@ -31,5 +31,11 @@ public class biubiu : MonoBehaviour
     }
 
     public GameObject Explodsion;
-    
+
+    void OnCollisionEnter()
+    {
+        GameObject ExplodsionSmog = Instantiate(Explodsion, transform.position, transform.rotation);
+        Destroy(ExplodsionSmog, 1.5f);
+    }
+
 }

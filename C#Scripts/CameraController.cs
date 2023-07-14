@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -50,11 +50,11 @@ public class CameraController : MonoBehaviour
     {
         float MouseX = Input.GetAxisRaw("Mouse X") * XAxisMouseMoveSpeed;
         float MouseY = Input.GetAxisRaw("Mouse Y") * YAxisMouseMoveSpeed;    
-        //�ӽǴ�ֱ�ƶ�
+        //视角垂直移动
         verticalRotate -= MouseY * YAxisMouseMoveSpeed;
         verticalRotate = Mathf.Clamp(verticalRotate, -75.0f, 75.0f);
         cameraPos.transform.localEulerAngles = new Vector3(verticalRotate, 0, 0);
-        //�ӽ�ˮƽ�ƶ�
+        //视角水平移动
         cameraPos.parent.rotation *= Quaternion.Euler(0,MouseX, 0);
     }
 }

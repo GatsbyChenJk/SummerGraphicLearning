@@ -1,10 +1,10 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class RayDetecting : MonoBehaviour
 {
-    //ÉäÏßÀàÊµÏÖÊó±êÊ°È¡
+    //å°„çº¿ç±»å®ç°é¼ æ ‡æ‹¾å–
     void Update()
     {
         if(Input.GetMouseButtonDown(1))
