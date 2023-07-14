@@ -1,4 +1,4 @@
-// Upgrade NOTE: replaced '_Object2World' with 'unity_ObjectToWorld'
+ï»¿// Upgrade NOTE: replaced '_Object2World' with 'unity_ObjectToWorld'
 
 Shader "Unlit/AlphaTestShader"
 {
@@ -44,7 +44,7 @@ Shader "Unlit/AlphaTestShader"
             vertOut vert(vertIn vIn)
             {
               vertOut vOut;
-              //Ìî³ä½á¹¹Ìå
+              //å¡«å……ç»“æž„ä½“
               vOut.pos = UnityObjectToClipPos(vIn.vertex);
               vOut.worldNormal = UnityObjectToWorldNormal(vIn.normal);
               vOut.worldPos = mul(unity_ObjectToWorld, vIn.vertex).xyz;
@@ -58,9 +58,9 @@ Shader "Unlit/AlphaTestShader"
               fixed3 worldLightDir = normalize(UnityWorldSpaceLightDir(vOut.worldPos));
               fixed4 texColor = tex2D(_MainTex, vOut.uv);
 
-              //Alpha²âÊÔ£¬Ê¹ÓÃClipº¯Êý
+              //Alphaæµ‹è¯•ï¼Œä½¿ç”¨Clipå‡½æ•°
               clip(texColor.a - _Cutoff);
-              //µÈ¼ÛÓÚ£º
+              //ç­‰ä»·äºŽï¼š
               //if((texColor.a - _Cutoff) < 0.0){                            }
               //  discard;
               //}

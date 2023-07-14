@@ -1,4 +1,4 @@
-Shader "Unlit/HalfLambertLightingModel"
+ï»¿Shader "Unlit/HalfLambertLightingModel"
 {
     Properties
     {
@@ -40,13 +40,13 @@ Shader "Unlit/HalfLambertLightingModel"
 
             fixed4 frag(vertOut vOut) : SV_Target
             {
-                //»·¾³¹â
+                //ç¯å¢ƒå…‰
                 fixed3 ambient = UNITY_LIGHTMODEL_AMBIENT.xyz;
-                //ÎïÌå·¨Ïß
+                //ç‰©ä½“æ³•çº¿
                 fixed3 worldNormal = normalize(vOut.worldNormal);
-                //¹âÕÕ·½Ïò
+                //å…‰ç…§æ–¹å‘
                 fixed3 worldLightDir = normalize(_WorldSpaceLightPos0.xyz);
-                //¼ÆËãÂş·´Éä£¨°ëÀ¼²®ÌØ¹âÕÕÄ£ĞÍ£©
+                //è®¡ç®—æ¼«åå°„ï¼ˆåŠå…°ä¼¯ç‰¹å…‰ç…§æ¨¡å‹ï¼‰
                 fixed halfLambert = dot(worldNormal, worldLightDir) * 0.5 + 0.5;
                 fixed3 diffuse = _LightColor0.rgb * _Diffuse.rgb * halfLambert;
 

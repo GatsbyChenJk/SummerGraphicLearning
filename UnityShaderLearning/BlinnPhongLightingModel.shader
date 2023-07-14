@@ -1,4 +1,4 @@
-Shader "Unlit/BlinnPhongLightingModel"
+ï»¿Shader "Unlit/BlinnPhongLightingModel"
 {
     Properties
     {
@@ -40,26 +40,26 @@ Shader "Unlit/BlinnPhongLightingModel"
             {
                 vertOut vOut;
                 vOut.pos = UnityObjectToClipPos(vIn.vertex);
-                //¼ÆËã·¨Ïß·½Ïò£¬ÓÃÓÚ´«µİ¸øÆ¬Ôª×ÅÉ«Æ÷
+                //è®¡ç®—æ³•çº¿æ–¹å‘ï¼Œç”¨äºä¼ é€’ç»™ç‰‡å…ƒç€è‰²å™¨
                 vOut.worldNormal = mul(vIn.normal, (float3x3)unity_WorldToObject);
-                //»ñÈ¡¶¥µãµÄÊÀ½ç¿Õ¼ä×ø±ê£¬ÓÃÓÚ¼ÆËã¹Û²ì·½Ïò
+                //è·å–é¡¶ç‚¹çš„ä¸–ç•Œç©ºé—´åæ ‡ï¼Œç”¨äºè®¡ç®—è§‚å¯Ÿæ–¹å‘
                 vOut.worldPos = mul(unity_ObjectToWorld, vIn.vertex).xyz;
 
                 return vOut;
             }
-            //²¼ÁÖ·ë¹âÕÕÄ£ĞÍ
+            //å¸ƒæ—å†¯å…‰ç…§æ¨¡å‹
             fixed4 frag(vertOut vOut) : SV_Target
             {
-                //»ñÈ¡Âş·´Éä¸÷¸öÊôĞÔµÄÖµ
+                //è·å–æ¼«åå°„å„ä¸ªå±æ€§çš„å€¼
                 fixed3 ambient = UNITY_LIGHTMODEL_AMBIENT.xyz;
                 fixed3 worldNormal = normalize(vOut.worldNormal);
                 fixed3 worldLightDir = normalize(_WorldSpaceLightPos0.xyz);
-                //¼ÆËãÂş·´Éä
+                //è®¡ç®—æ¼«åå°„
                 fixed3 diffuse = _LightColor0.rgb * _Diffuse.rgb * saturate(dot(worldNormal, worldLightDir));
-                //¼ÆËã²¼ÁÖ·ë¸ß¹â·´Éä¸÷¸öÊôĞÔµÄÖµ 
+                //è®¡ç®—å¸ƒæ—å†¯é«˜å…‰åå°„å„ä¸ªå±æ€§çš„å€¼ 
                 fixed3 viewDir = normalize(_WorldSpaceCameraPos.xyz - vOut.worldPos.xyz);
                 fixed3 halfDir = normalize(worldLightDir + viewDir);           
-                //¼ÆËãBlinn Phong¸ß¹â·´Éä
+                //è®¡ç®—Blinn Phongé«˜å…‰åå°„
                 fixed3 specular = _LightColor0.rgb * _Specular.rgb * pow(max(0,dot(worldNormal, halfDir)),
                     _Gloss);
 

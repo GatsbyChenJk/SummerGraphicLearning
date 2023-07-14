@@ -1,4 +1,4 @@
-// Upgrade NOTE: replaced '_World2Object' with 'unity_WorldToObject'
+ï»¿// Upgrade NOTE: replaced '_World2Object' with 'unity_WorldToObject'
 
 // Upgrade NOTE: replaced '_Object2World' with 'unity_ObjectToWorld'
 
@@ -38,26 +38,26 @@ Shader "Unlit/SpecularLighting"
                 float4 pos : SV_POSITION;
                 fixed3 color : COLOR;
             };
-            //Öğ¶¥µãÊµÏÖ»ù±¾¸ß¹â·´Éä¹âÕÕÄ£ĞÍ
+            //é€é¡¶ç‚¹å®ç°åŸºæœ¬é«˜å…‰åå°„å…‰ç…§æ¨¡å‹
             vertOut vert(vertIn vIn)
             {
                 vertOut vOut;
                 vOut.pos = UnityObjectToClipPos(vIn.vertex);
-                //»ñÈ¡»·¾³¹âÊôĞÔ
+                //è·å–ç¯å¢ƒå…‰å±æ€§
                 fixed3 ambient = UNITY_LIGHTMODEL_AMBIENT.xyz;
-                //±ä»»(get)·¨ÏßÏòÁ¿
+                //å˜æ¢(get)æ³•çº¿å‘é‡
                 fixed3 worldNormal = normalize(mul(vIn.normal, (float3x3)unity_WorldToObject));
-                //»ñÈ¡¹âÕÕ·½Ïò
+                //è·å–å…‰ç…§æ–¹å‘
                 fixed3 worldLightDir = normalize(_WorldSpaceLightPos0.xyz);
-                //¼ÆËãÂş·´Éä¹âÕÕ
+                //è®¡ç®—æ¼«åå°„å…‰ç…§
                 fixed3 diffuse = _LightColor0.rgb * _Diffuse.rgb * saturate(dot(worldNormal,
                     worldLightDir));
 
-                //»ñÈ¡·´Éä¹âÏß·½Ïò
+                //è·å–åå°„å…‰çº¿æ–¹å‘
                 fixed3 reflectDir = normalize(reflect(-worldLightDir, worldNormal));
-                //»ñÈ¡ÊÓ½Ç£¨¹Û²ì£©·½Ïò
+                //è·å–è§†è§’ï¼ˆè§‚å¯Ÿï¼‰æ–¹å‘
                 fixed3 viewDir = normalize(_WorldSpaceCameraPos.xyz - mul(unity_ObjectToWorld, vIn.vertex).xyz);
-                //¼ÆËã¸ß¹â·´Éä¹âÕÕ£¨Phong£©
+                //è®¡ç®—é«˜å…‰åå°„å…‰ç…§ï¼ˆPhongï¼‰
                 fixed3 specular = _LightColor0.rgb * _Specular.rgb * pow(saturate(dot(reflectDir, viewDir)), _Gloss);
 
                 vOut.color = ambient + diffuse + specular;

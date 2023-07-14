@@ -1,4 +1,4 @@
-// Upgrade NOTE: replaced '_Object2World' with 'unity_ObjectToWorld'
+ï»¿// Upgrade NOTE: replaced '_Object2World' with 'unity_ObjectToWorld'
 
 Shader "Unlit/NormalShaderInWorld"
 {
@@ -54,16 +54,16 @@ Shader "Unlit/NormalShaderInWorld"
             {
              vertOut vOut;
              vOut.pos = UnityObjectToClipPos(vIn.vertex);
-             //Æ«ÒÆ
+             //åç§»
              vOut.uv.xy = vIn.texcoord.xy * _MainTex_ST.xy + _MainTex_ST.zw;
              vOut.uv.zw = vIn.texcoord.xy * _BumpMap_ST.xy + _BumpMap_ST.zw;
-             //¼ÆËã±ä»»¾ØÕó¸÷ĞĞ·ÖÁ¿
+             //è®¡ç®—å˜æ¢çŸ©é˜µå„è¡Œåˆ†é‡
              float3 worldPos = mul(unity_ObjectToWorld, vIn.vertex).xyz;
              fixed3 worldNormal = UnityObjectToWorldNormal(vIn.normal);
              fixed3 worldTangent = UnityObjectToWorldDir(vIn.tangent.xyz);
              fixed3 worldBinormal = cross(worldNormal,worldTangent) * vIn.tangent.w;
 
-             //´æ´¢¼ÆËãµÄ·ÖÁ¿
+             //å­˜å‚¨è®¡ç®—çš„åˆ†é‡
              vOut.TtoW0 = float4(worldTangent.x, worldBinormal.x, worldNormal.x, worldPos.x);
              vOut.TtoW1 = float4(worldTangent.y, worldBinormal.y, worldNormal.y, worldPos.y);
              vOut.TtoW2 = float4(worldTangent.z, worldBinormal.z, worldNormal.z, worldPos.z);
@@ -74,22 +74,22 @@ Shader "Unlit/NormalShaderInWorld"
 
             fixed4 frag(vertOut vOut) : SV_Target
             {
-              //»ñÈ¡ÎïÌåµÄÊÀ½ç¿Õ¼ä×ø±ê
+              //è·å–ç‰©ä½“çš„ä¸–ç•Œç©ºé—´åæ ‡
               float3 worldPos = float3(vOut.TtoW0.w, vOut.TtoW1.w, vOut.TtoW2.w);
-              //¼ÆËã¹âÕÕ·½ÏòºÍ¹Û²ì·½Ïò
+              //è®¡ç®—å…‰ç…§æ–¹å‘å’Œè§‚å¯Ÿæ–¹å‘
               fixed3 lightDir = normalize(UnityWorldSpaceLightDir(worldPos));
               fixed3 viewDir = normalize(UnityWorldSpaceViewDir(worldPos));
 
-              //»ñÈ¡ÇĞÏß¿Õ¼äµÄ·¨Ïß
+              //è·å–åˆ‡çº¿ç©ºé—´çš„æ³•çº¿
               fixed3 bump = UnpackNormal(tex2D(_BumpMap, vOut.uv.zw));
               bump.xy *= _BumpScale;
               bump.z = sqrt(1.0 - saturate(dot(bump.xy, bump.xy)));
-              //½«·¨ÏßÓÉÇĞÏß¿Õ¼ä×ø±ê±ä»»µ½ÊÀ½ç¿Õ¼ä×ø±ê
+              //å°†æ³•çº¿ç”±åˆ‡çº¿ç©ºé—´åæ ‡å˜æ¢åˆ°ä¸–ç•Œç©ºé—´åæ ‡
               bump = normalize(half3(dot(vOut.TtoW0.xyz, bump),
               dot(vOut.TtoW1.xyz, bump),
               dot(vOut.TtoW2.xyz, bump)));
 
-              //¼ÆËã¹âÕÕ(»·¾³¹â¡¢ Âş·´ÉäºÍ¸ß¹â)
+              //è®¡ç®—å…‰ç…§(ç¯å¢ƒå…‰ã€ æ¼«åå°„å’Œé«˜å…‰)
               fixed3 albedo = tex2D(_MainTex, vOut.uv).rgb * _Color.rgb;
               fixed3 ambient = UNITY_LIGHTMODEL_AMBIENT.xyz * albedo;
               fixed3 diffuse = _LightColor0.rgb * albedo * max(0, dot(bump, lightDir));

@@ -1,4 +1,4 @@
-// Upgrade NOTE: replaced '_World2Object' with 'unity_WorldToObject'
+ï»¿// Upgrade NOTE: replaced '_World2Object' with 'unity_WorldToObject'
 
 Shader "Unlit/LightingShader"
 {
@@ -33,23 +33,23 @@ Shader "Unlit/LightingShader"
                 fixed3 color : COLOR;
             };
 
-            //Öğ¶¥µãÂş·´Éä¹âÕÕ£¨Ê¹ÓÃ¶¥µã×ÅÉ«Æ÷£©
+            //é€é¡¶ç‚¹æ¼«åå°„å…‰ç…§ï¼ˆä½¿ç”¨é¡¶ç‚¹ç€è‰²å™¨ï¼‰
             vertOut vert(vertIn vIn)
             {
                 vertOut vOut;
                 vOut.pos = UnityObjectToClipPos(vIn.vertex);
 
-                //»ñÈ¡»·¾³¹âÊôĞÔ
+                //è·å–ç¯å¢ƒå…‰å±æ€§
                 fixed3 ambient = UNITY_LIGHTMODEL_AMBIENT.xyz;
 
-                //½«ÎïÌå·¨ÏßÏòÁ¿´ÓÄ£ĞÍ¿Õ¼ä×ª»»µ½ÊÀ½ç¿Õ¼ä
+                //å°†ç‰©ä½“æ³•çº¿å‘é‡ä»æ¨¡å‹ç©ºé—´è½¬æ¢åˆ°ä¸–ç•Œç©ºé—´
                 fixed3 worldNormal = normalize(mul(vIn.normal, (float3x3)unity_WorldToObject));
 
-                //»ñÈ¡¹âÕÕ·½ÏòÏòÁ¿
+                //è·å–å…‰ç…§æ–¹å‘å‘é‡
                 fixed3 worldLight = normalize(_WorldSpaceLightPos0.xyz);
 
-                //¼ÆËã»·¾³¹â£¨lambert's law£©
-                //ÆäÖĞsaturateº¯ÊıÓÃÓÚ½«·¶Î§ÏŞÖÆÔÚ[0,1]£¬Ïàµ±ÓÚ¶¨ÂÉÖĞµÄ'max'
+                //è®¡ç®—ç¯å¢ƒå…‰ï¼ˆlambert's lawï¼‰
+                //å…¶ä¸­saturateå‡½æ•°ç”¨äºå°†èŒƒå›´é™åˆ¶åœ¨[0,1]ï¼Œç›¸å½“äºå®šå¾‹ä¸­çš„'max'
                 fixed3 diffuse = _LightColor0.rgb * _Diffuse.rgb * saturate(dot(worldNormal,
                     worldLight));
 

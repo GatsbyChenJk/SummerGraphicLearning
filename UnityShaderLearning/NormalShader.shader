@@ -1,4 +1,4 @@
-Shader "Unlit/NormalShader"
+ï»¿Shader "Unlit/NormalShader"
 {
     Properties
     {
@@ -9,7 +9,7 @@ Shader "Unlit/NormalShader"
         _Specular ("Specular", Color) = (1, 1, 1, 1)
         _Gloss ("Gloss", Range(8.0, 256)) = 20
     }
-    //µÚÒ»ÖÖ·¨ÏßÌùÍ¼ÊµÏÖ·½Ê½£ºÔÚÇĞÏß¿Õ¼äÖĞ¼ÆËã
+    //ç¬¬ä¸€ç§æ³•çº¿è´´å›¾å®ç°æ–¹å¼ï¼šåœ¨åˆ‡çº¿ç©ºé—´ä¸­è®¡ç®—
     SubShader
     {
        Tags { "LightMode" = "ForwardBase"}
@@ -51,21 +51,21 @@ Shader "Unlit/NormalShader"
             {
               vertOut vOut;
               vOut.pos = UnityObjectToClipPos(vIn.vertex);
-              //»ñÈ¡ÎÆÀíºÍ·¨ÏßÌùÍ¼Æ«ÒÆÁ¿
+              //è·å–çº¹ç†å’Œæ³•çº¿è´´å›¾åç§»é‡
               vOut.uv.xy = vIn.texcoord.xy * _MainTex_ST.xy + _MainTex_ST.zw;
               vOut.uv.zw = vIn.texcoord.xy * _BumpMap_ST.xy + _BumpMap_ST.zw;
 
-              //¼ÆËã¸±ÇĞÏß
+              //è®¡ç®—å‰¯åˆ‡çº¿
               float3 binormal = cross( normalize(vIn.normal), normalize(vIn.tangent.xyz))
               * vIn.tangent.w;
 
-              //¹¹½¨½«Ä£ĞÍ¿Õ¼ä×ª»»ÎªÇĞÏß¿Õ¼äµÄ±ä»»¾ØÕó
+              //æ„å»ºå°†æ¨¡å‹ç©ºé—´è½¬æ¢ä¸ºåˆ‡çº¿ç©ºé—´çš„å˜æ¢çŸ©é˜µ
               float3x3 rotation = float3x3(vIn.tangent.xyz, binormal, vIn.normal);
               //or : TANGENT_SPACE_ROTATION
 
-              //½«¹âÕÕ·½ÏòÏòÁ¿ÓÉÄ£ĞÍ¿Õ¼ä±ä»»µ½ÇĞÏß¿Õ¼ä
+              //å°†å…‰ç…§æ–¹å‘å‘é‡ç”±æ¨¡å‹ç©ºé—´å˜æ¢åˆ°åˆ‡çº¿ç©ºé—´
               vOut.lightDir = mul(rotation, ObjSpaceLightDir(vIn.vertex)).xyz;
-              //½«¹Û²ì·½ÏòÏòÁ¿ÓÉÄ£ĞÍ¿Õ¼ä±ä»»µ½ÇĞÏß¿Õ¼ä
+              //å°†è§‚å¯Ÿæ–¹å‘å‘é‡ç”±æ¨¡å‹ç©ºé—´å˜æ¢åˆ°åˆ‡çº¿ç©ºé—´
               vOut.viewDir = mul(rotation,ObjSpaceViewDir(vIn.vertex)).xyz;
 
               return vOut;
@@ -76,16 +76,16 @@ Shader "Unlit/NormalShader"
               fixed3 tangentLightDir = normalize(vOut.lightDir);
               fixed3 tangentViewDir = normalize(vOut.viewDir);
 
-              //»ñÈ¡·¨ÏßÌùÍ¼µÄÎÆÀíµ¥Ôª£¨ÎÆËØtexel£©
+              //è·å–æ³•çº¿è´´å›¾çš„çº¹ç†å•å…ƒï¼ˆçº¹ç´ texelï¼‰
               fixed4 packedNormal = tex2D(_BumpMap,vOut.uv.zw);
               fixed3 tangentNormal;
 
 
-              //½«ÎÆÀí±ê¼ÇÎª·¨ÏßÌùÍ¼£¬Ê¹ÓÃÄÚÖÃº¯Êı
+              //å°†çº¹ç†æ ‡è®°ä¸ºæ³•çº¿è´´å›¾ï¼Œä½¿ç”¨å†…ç½®å‡½æ•°
               tangentNormal = UnpackNormal(packedNormal);
               tangentNormal.xy *= _BumpScale;
               tangentNormal.z = sqrt(1.0 - saturate(dot(tangentNormal.xy,tangentNormal.xy)));
-              //ÔÚÇĞÏß¿Õ¼äÌõ¼şÏÂ¼ÆËã¹âÕÕ(Blinn Phong)
+              //åœ¨åˆ‡çº¿ç©ºé—´æ¡ä»¶ä¸‹è®¡ç®—å…‰ç…§(Blinn Phong)
               fixed3 albedo = tex2D(_MainTex, vOut.uv).rgb * _Color.rgb;
 
               fixed3 ambient = UNITY_LIGHTMODEL_AMBIENT.xyz * albedo;

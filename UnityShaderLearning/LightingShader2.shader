@@ -1,4 +1,4 @@
-// Upgrade NOTE: replaced '_World2Object' with 'unity_WorldToObject'
+ï»¿// Upgrade NOTE: replaced '_World2Object' with 'unity_WorldToObject'
 
 Shader "Unlit/LightingShader2"
 {
@@ -25,7 +25,7 @@ Shader "Unlit/LightingShader2"
                 float4 vertex : POSITION;
                 float3 normal : NORMAL;
             };
-            //´Ë´¦½«·µ»ØÖµ½á¹¹ÌåÖĞµÄÑÕÉ«¸ÄÎª·¨ÏßÏòÁ¿
+            //æ­¤å¤„å°†è¿”å›å€¼ç»“æ„ä½“ä¸­çš„é¢œè‰²æ”¹ä¸ºæ³•çº¿å‘é‡
             struct vertOut
             {
                 float4 pos : SV_POSITION;
@@ -42,15 +42,15 @@ Shader "Unlit/LightingShader2"
 
                 return vOut;
             }
-            //ÖğÏñËØ¼ÆËã»·¾³¹â£¨Ê¹ÓÃÆ¬Ôª×ÅÉ«Æ÷£©
+            //é€åƒç´ è®¡ç®—ç¯å¢ƒå…‰ï¼ˆä½¿ç”¨ç‰‡å…ƒç€è‰²å™¨ï¼‰
             fixed4 frag(vertOut vOut) : SV_Target
             {
                 fixed3 ambient = UNITY_LIGHTMODEL_AMBIENT.xyz;
-                //»ñÈ¡·¨ÏßÏòÁ¿
+                //è·å–æ³•çº¿å‘é‡
                 fixed3 worldNormal = normalize(vOut.worldNormal);
-                //»ñÈ¡¹âÏß·½ÏòÏòÁ¿
+                //è·å–å…‰çº¿æ–¹å‘å‘é‡
                 fixed3 worldLightDir = normalize(_WorldSpaceLightPos0.xyz);
-                //¼ÆËã»·¾³¹â(lambert's law)
+                //è®¡ç®—ç¯å¢ƒå…‰(lambert's law)
                 fixed3 diffuse = _LightColor0.rgb * _Diffuse.rgb * saturate(dot(worldNormal,
                     worldLightDir));
 

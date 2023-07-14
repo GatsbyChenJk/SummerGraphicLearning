@@ -1,4 +1,4 @@
-Shader "Unlit/AlphaBlendShader"
+ï»¿Shader "Unlit/AlphaBlendShader"
 {
     Properties
     {
@@ -45,7 +45,7 @@ Shader "Unlit/AlphaBlendShader"
             vertOut vert(vertIn vIn)
             {
               vertOut vOut;
-              //Ìî³ä½á¹¹Ìå
+              //å¡«å……ç»“æž„ä½“
               vOut.pos = UnityObjectToClipPos(vIn.vertex);
               vOut.worldNormal = UnityObjectToWorldNormal(vIn.normal);
               vOut.worldPos = mul(unity_ObjectToWorld, vIn.vertex).xyz;
