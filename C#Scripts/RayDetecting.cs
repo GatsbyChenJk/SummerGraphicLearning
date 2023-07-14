@@ -4,14 +4,21 @@ using UnityEngine;
 
 public class RayDetecting : MonoBehaviour
 {
-
+    //射线类实现鼠标拾取
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.E))
+        if(Input.GetMouseButtonDown(1))
         {
-            Ray detectRay = new Ray(transform.position, transform.forward);
-            Debug.DrawLine(transform.position, transform.forward, Color.green);
-            print(detectRay.GetPoint(5));
+            RaycastHit hit;
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);   
+            
+            if(Physics.Raycast(ray, out hit))
+            {
+                if(hit.collider != null)
+                {
+                    Debug.Log("Hit on Object" + hit.collider.name);
+                }
+            }
         }
     }
 }
