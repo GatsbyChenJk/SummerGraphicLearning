@@ -6,29 +6,30 @@ public class biubiu : MonoBehaviour
 {
 
     public GameObject obj;
-    public float bulletSpeed = 5.0f;
-    private Transform BulletShootPos;
+    public float bulletSpeed = 20.0f;
+    public Transform BulletShootPos;
 
-    void Start()
-    {
-        BulletShootPos = this.transform;
-    }
 
     void Update()
     {
-        if(Input.GetMouseButtonDown(0))
+
+        //错误示例：只生成了预制体，没有改变生成预制体的属性
+        //if(Input.GetMouseButtonDown(0))
+        //{
+         //   Instantiate(obj, BulletShootPos.position + Vector3.forward, new Quaternion(0, 0, 0, 0));  
+         //    obj.GetComponent<Rigidbody>().velocity = transform.forward * bulletSpeed;
+       // }
+
+        if (Input.GetMouseButtonDown(0))
         {
-           Instantiate(obj, BulletShootPos.position + Vector3.forward, new Quaternion(0,0,0,0));
-            obj.GetComponent<Rigidbody>().AddForce(Vector3.forward * 5.0f);
-            obj.GetComponent<Rigidbody>().velocity = transform.forward * bulletSpeed;
+            GameObject bullet = Instantiate(obj, BulletShootPos.position, BulletShootPos.rotation); //as GameObject;
+            bullet.GetComponent<Rigidbody>().velocity = bullet.transform.forward * bulletSpeed;
+            Destroy(bullet, 2);
         }
+
+        
     }
 
     public GameObject Explodsion;
-    void OnCollisionEnter()
-    {
-        Instantiate(Explodsion, transform.position, transform.rotation);
-        Destroy(obj);
-        Destroy(Explodsion);
-    }
+    
 }
