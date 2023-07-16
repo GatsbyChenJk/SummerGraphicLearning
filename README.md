@@ -1,1 +1,2 @@
-# SummerGraphicLearning 学习时代码的具体实现都放在这了
+# SummerGraphicLearning 
+学习过程关键的代码具体实现都放在这了
