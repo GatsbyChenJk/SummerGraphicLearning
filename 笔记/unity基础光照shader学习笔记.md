@@ -161,11 +161,11 @@ Shader "Unlit/LightingShader2"
 
 1）逐顶点
 
-![image-20230711203841355](C:\Users\25768\AppData\Roaming\Typora\typora-user-images\image-20230711203841355.png)
+![image-text](https://github.com/GatsbyChenJk/SummerGraphicLearning/blob/main/%E7%AC%94%E8%AE%B0/images/image-20230711203841355.png)
 
 2）逐像素
 
-![image-20230711203902928](C:\Users\25768\AppData\Roaming\Typora\typora-user-images\image-20230711203902928.png)
+![image-text](https://github.com/GatsbyChenJk/SummerGraphicLearning/blob/main/%E7%AC%94%E8%AE%B0/images/image-20230711203902928.png)
 
 可见两种实现方式都有一定问题，前者在明暗交界处有明显的锯齿，而后者明与暗之间没有过度，显得不自然，于是这里的解决方案就是半兰伯特模型
 
@@ -177,13 +177,13 @@ c_{diffuse}=(c_{light}\cdot m_{diffuse})(\alpha(\hat{n}\cdot\vec{I})+\beta)
 $$
 其中阿尔法和贝塔通常为0.5，在unity的实现中对于漫反射的计算可以修改成如下形式：
 
-![image-20230711210422248](C:\Users\25768\AppData\Roaming\Typora\typora-user-images\image-20230711210422248.png)
+![image-text](https://github.com/GatsbyChenJk/SummerGraphicLearning/blob/main/%E7%AC%94%E8%AE%B0/images/image-20230711210422248.png)
 
 效果如图：
 
-![image-20230711210442644](C:\Users\25768\AppData\Roaming\Typora\typora-user-images\image-20230711210442644.png)
+![image-text](https://github.com/GatsbyChenJk/SummerGraphicLearning/blob/main/%E7%AC%94%E8%AE%B0/images/image-20230711210442644.png)
 
-![image-20230711210458239](C:\Users\25768\AppData\Roaming\Typora\typora-user-images\image-20230711210458239.png)
+![image-text](https://github.com/GatsbyChenJk/SummerGraphicLearning/blob/main/%E7%AC%94%E8%AE%B0/images/image-20230711210458239.png)
 
 # 二、高光（镜面）反射
 
