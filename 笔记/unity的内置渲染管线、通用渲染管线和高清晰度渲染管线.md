@@ -27,7 +27,7 @@ Unity的内置渲染管线（Built-in Render Pipeline）是Unity早期版本中�
 
 依次打开Edit->Project  Settings->Graphics->Scriptable Render Pipeline Settings
 
-![image-20230711165423541](C:\Users\25768\AppData\Roaming\Typora\typora-user-images\image-20230711165423541.png)
+![image text](https://github.com/GatsbyChenJk/SummerGraphicLearning/blob/main/%E7%AC%94%E8%AE%B0/images/image-20230711165410756.png)
 
 点击小圆圈，弹出一个小窗，里面有可供选择的渲染管线资源，选择创建的渲染管线资源后
 
