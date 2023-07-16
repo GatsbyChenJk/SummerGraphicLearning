@@ -19,7 +19,7 @@ Unity的内置渲染管线（Built-in Render Pipeline）是Unity早期版本中�
 
 渲染管线在unity中作为一种asset，所以新建渲染管线要在asset窗口右键然后依次点击Create->Rendering，就可以创建相应的渲染管线，例如创建一个urp渲染管线的过程如下：
 
-![image-20230711165049518](C:\Users\25768\AppData\Roaming\Typora\typora-user-images\image-20230711165049518.png)
+![image text](https://github.com/GatsbyChenJk/SummerGraphicLearning/blob/main/%E7%AC%94%E8%AE%B0/images/image-20230711165049518.png)
 
 依次点击Create->Rendering->URP Asset(with Universal Renderer)
 
