@@ -358,7 +358,7 @@ Shader "Unlit/SpecularLighting2"
 
 3）两种实现方式效果如下：
 
-![image-20230713114258922](C:\Users\25768\AppData\Roaming\Typora\typora-user-images\image-20230713114258922.png)
+![image-text](https://github.com/GatsbyChenJk/SummerGraphicLearning/blob/main/%E7%AC%94%E8%AE%B0/images/image-20230713114258922.png)
 
 （左：逐顶点  ； 右：逐像素）
 
@@ -392,6 +392,6 @@ $$
 
 效果与两种Phong模型对比如下：
 
-![image-20230713160057742](C:\Users\25768\AppData\Roaming\Typora\typora-user-images\image-20230713160057742.png)
+![image-text](https://github.com/GatsbyChenJk/SummerGraphicLearning/blob/main/%E7%AC%94%E8%AE%B0/images/image-20230713160057742.png)
 
 图中最右侧的即为布林冯模型实现的效果，可见其具有更大范围的高光效果。
