@@ -146,7 +146,7 @@ g表示重力加速度，k表示向量k的模
 
 根据海面高度模型，我们可以通过计算其梯度的方向结合如图所示几何关系得到某点的法线方向
 
-![](C:\Users\25768\Desktop\暑假学习笔记\中期考核\directions.jpg)
+![image-text](https://github.com/GatsbyChenJk/SummerGraphicLearning/blob/main/%E7%AC%94%E8%AE%B0/images/NomalDir.png)
 
 其中梯度方向为高度逐渐增高的方向，与切线方向相反
 
