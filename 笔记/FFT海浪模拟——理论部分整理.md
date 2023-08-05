@@ -45,28 +45,28 @@ $$
 #### 3）复数为指数的信号形式
 
 首先根据欧拉公式
-$$
+![](http://latex.codecogs.com/gif.latex?
 e^{i\theta}=cos(\theta)+isin(\theta)
-$$
+)
 以空域形式表示时，可令
-$$
+![](http://latex.codecogs.com/gif.latex?
 \theta=\omega x
-$$
+)
 可得
-$$
+![](http://latex.codecogs.com/gif.latex?
 cos(\omega x)=\frac{e^{i\omega x}+e^{-i\omega x}}{2}\\
 sin(\omega x)=\frac{e^{i\omega x}-e^{-i\omega x}}{2i}
-$$
+)
 这样就可将信号表示为
-$$
+![](http://latex.codecogs.com/gif.latex?
 f(x)=A_1(0)+\sum_{\omega (\omega>0)}\frac{A_1(\omega)-iA_2(\omega)}{2}e^{i\omega x}+\sum_{\omega(\omega>0)}\frac{A_1(\omega)+iA_2(\omega)}{2}e^{-i \omega x}进行
-$$
+)
 由于A的取值只能为正数，可对A1进行偶延拓，对A2进行奇延拓（此处省略大量过程）
 
 最后可将信号和频谱的关系表示为
-$$
+![](http://latex.codecogs.com/gif.latex?
 f(x)=\sum_\omega F(\omega)e^{i\omega x}
-$$
+)
 
 ## 3.海面的逆傅里叶变换模型（FFT）
 
