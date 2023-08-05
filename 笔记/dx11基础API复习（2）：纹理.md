@@ -6,7 +6,7 @@
 
 纹理坐标系和屏幕、图片坐标系的有些相似，它们的U轴都是水平朝右，V轴竖直向下。但是纹理的X和Y的取值范围都为`[0.0, 1.0]`，分别映射到`[0, Width]`和`[0, Height]`，示意图如下：
 
-![](C:\Users\25768\Pictures\Camera Roll\texcoord.png)
+![image-text](https://github.com/GatsbyChenJk/SummerGraphicLearning/blob/main/%E7%AC%94%E8%AE%B0/images/texcoord.png)
 
 2）纹理坐标的表示
 
@@ -25,7 +25,7 @@ $$
 
 示意图如下：
 
-![](C:\Users\25768\Pictures\Camera Roll\texcoord2.png)
+![image-text](https://github.com/GatsbyChenJk/SummerGraphicLearning/blob/main/%E7%AC%94%E8%AE%B0/images/texcoord2.png)
 
 ## 2.过滤器（Filter）
 
@@ -59,13 +59,13 @@ $$
 
 下图展示了双线性插值法的过程，已知4个相邻像素点，当前采样的纹理坐标在这四个点内，则首先根据x方向的纹理坐标进行线性插值，然后根据y方向的纹理坐标再进行一遍线性插值：
 
-![](C:\Users\25768\Pictures\Camera Roll\lerp.png)
+![image-text](https://github.com/GatsbyChenJk/SummerGraphicLearning/blob/main/%E7%AC%94%E8%AE%B0/images/lerp.png)
 
 这其实就是帐篷过滤器（Tent Filter）的应用
 
 ii.2两种插值方法的对比（左为常量插值，右为双线性插值）
 
-![](C:\Users\25768\Pictures\Camera Roll\twoLerpCompare.png)
+![image-text](https://github.com/GatsbyChenJk/SummerGraphicLearning/blob/main/%E7%AC%94%E8%AE%B0/images/twoLerpCompare.png)
 
 可见常量插值锯齿感明显，而双线性插值模糊感明显
 
@@ -79,7 +79,7 @@ $$
 $$
 各级mipmap如图所示：
 
-![](C:\Users\25768\Pictures\Camera Roll\mipmap.png)
+![image-text](https://github.com/GatsbyChenJk/SummerGraphicLearning/blob/main/%E7%AC%94%E8%AE%B0/images/mipmap.png)
 
 接下来会有两种情况：
 
@@ -92,7 +92,7 @@ Anisotropic Filtering可以帮助我们处理那些不与屏幕平行的平面�
 
 下面左图使用了线性过滤法，右边使用的是各向异性过滤，可以看到顶面纹理比左边的更加清晰
 
-![](C:\Users\25768\Pictures\Camera Roll\Anisotropic Filtering.png)
+![image-text](https://github.com/GatsbyChenJk/SummerGraphicLearning/blob/main/%E7%AC%94%E8%AE%B0/images/Anisotropic%20Filtering.png)
 
 ## 3.使用的主要api
 
