@@ -4,7 +4,7 @@
 
 一个简易的dx11渲染管线可表示为下图，其中矩形为不可编程的阶段，椭圆形为可编程的阶段
 
-![image-20230719171103101](C:\Users\25768\AppData\Roaming\Typora\typora-user-images\image-20230719171103101.png)
+![image-text](https://github.com/GatsbyChenJk/SummerGraphicLearning/blob/main/%E7%AC%94%E8%AE%B0/images/singleRP.png)
 
 ## 输入装配阶段
 
