@@ -75,12 +75,12 @@ $$
 
 第1次分解（4上4下）：
 
-![](C:\Users\25768\Desktop\暑假学习笔记\中期考核\calculate1.webp)
+![image-text](https://github.com/GatsbyChenJk/SummerGraphicLearning/blob/main/%E7%AC%94%E8%AE%B0/images/FFT1.png)
 
 第二次（2上2下）：
 
-![](C:\Users\25768\Desktop\暑假学习笔记\中期考核\calculate2.jpg)
+![image-text](https://github.com/GatsbyChenJk/SummerGraphicLearning/blob/main/%E7%AC%94%E8%AE%B0/images/FFT2.png)
 
 第三次（1上1下）：
 
-![](C:\Users\25768\Desktop\暑假学习笔记\中期考核\calculate3.webp)
+![image-text](https://github.com/GatsbyChenJk/SummerGraphicLearning/blob/main/%E7%AC%94%E8%AE%B0/images/FFT3.png)
